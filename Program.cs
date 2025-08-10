@@ -1,7 +1,17 @@
+using Microsoft.EntityFrameworkCore;
+using Database;
+using GalaxyFarFarAway.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.Configure<StarWarsApiSettings>(builder.Configuration.GetSection("StarWarsApiSettings"));
+builder.Services.AddHttpClient<StarWarsAPIService>();
+builder.Services.AddHostedService<StarWarsDatabaseSeeder>();
 
 var app = builder.Build();
 
