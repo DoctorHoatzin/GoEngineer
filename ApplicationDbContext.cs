@@ -1,4 +1,4 @@
-﻿using GalaxyFarFarAway;
+﻿using GalaxyFarFarAway.ViewModels;
 using Microsoft.EntityFrameworkCore;
 
 namespace Database

@@ -1,4 +1,4 @@
-namespace GoEngineer_Star_Wars_API_Demonstration.Models
+namespace GalaxyFarFarAway.ViewModels
 {
     public class ErrorViewModel
     {

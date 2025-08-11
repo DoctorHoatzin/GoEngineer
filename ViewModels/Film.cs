@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace GalaxyFarFarAway
+namespace GalaxyFarFarAway.ViewModels
 {
     public class Film
     {

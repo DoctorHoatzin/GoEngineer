@@ -1,8 +1,8 @@
 using System.Diagnostics;
-using GoEngineer_Star_Wars_API_Demonstration.Models;
+using GalaxyFarFarAway.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
-namespace GoEngineer_Star_Wars_API_Demonstration.Controllers
+namespace GalaxyFarFarAway
 {
     public class HomeController : Controller
     {

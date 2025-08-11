@@ -1,10 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using GalaxyFarFarAway;
+using Database;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
+using GalaxyFarFarAway.ViewModels;
 
 namespace GalaxyFarFarAway.Services
 {
@@ -16,26 +17,25 @@ namespace GalaxyFarFarAway.Services
             _logger = logger;
         }
 
-        public async Task StartAsync(CancellationToken token)
+        public async Task StartAsync(CancellationToken cancellationToken)
         {
-            using (var scope = _serviceProvider.CreateScope())
+            using var scope = _serviceProvider.CreateScope();
+            var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+            var apiService = scope.ServiceProvider.GetRequiredService<StarWarsAPIService>();
+
+            if (!db.Starships.Any())
             {
-                var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-                if (await dbContext.Database.EnsureCreatedAsync(token))
+                var starships = await apiService.GetStarshipsFromApiAsync<StarshipResponse>("/starships");
+                var starshipData = starships.Results;
+                foreach (var ship in starshipData)
                 {
-                    _logger.LogInformation("Database created successfully.");
+                    db.Starships.Add(ship);
                 }
-                else
-                {
-                    _logger.LogInformation("Database already exists.");
-                }
+                await db.SaveChangesAsync();
             }
         }
 
-        public async Task StopAsync(CancellationToken token)
-        {
-
-        }
+        public Task StopAsync(CancellationToken cancellationToken) => Task.CompletedTask;
 
         private readonly IServiceProvider _serviceProvider;
         private readonly ILogger<StarWarsDatabaseSeeder> _logger;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
+using System.Text.Json;
 
 namespace GalaxyFarFarAway.Services
 {
@@ -14,7 +15,8 @@ namespace GalaxyFarFarAway.Services
         }
         public async Task<T?> GetStarshipsFromApiAsync<T>(string endpoint)
         {
-            return await _httpClient.GetFromJsonAsync<T>($"{_baseUrl}/{endpoint}");
+            var json = await _httpClient.GetStringAsync($"{_baseUrl}/{endpoint}");
+            return JsonSerializer.Deserialize<T>(json);
         }
 
         private readonly HttpClient _httpClient;

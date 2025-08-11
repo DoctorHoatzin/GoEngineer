@@ -9,7 +9,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-builder.Services.Configure<StarWarsApiSettings>(builder.Configuration.GetSection("StarWarsApiSettings"));
+builder.Services.Configure<StarWarsApiSettings>(builder.Configuration.GetSection("StarWarsApi"));
 builder.Services.AddHttpClient<StarWarsAPIService>();
 builder.Services.AddHostedService<StarWarsDatabaseSeeder>();
 

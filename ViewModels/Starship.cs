@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
-namespace GalaxyFarFarAway
+namespace GalaxyFarFarAway.ViewModels
 {
     public class Starship
     {
@@ -41,5 +41,13 @@ namespace GalaxyFarFarAway
         public DateTime DateCreated { get; set; }
         public DateTime DateLastUpdated { get; set; }
         public string APIUrl { get; set; }
+    }
+
+    public class StarshipResponse
+    {
+        public int Count { get; set; }
+        public string Next { get; set; }
+        public string Previous { get; set; }
+        public List<Starship> Results { get; set; }
     }
 }
