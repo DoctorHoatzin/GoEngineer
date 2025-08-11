@@ -48,16 +48,4 @@ namespace GalaxyFarFarAway.ViewModels
         [JsonPropertyName("url")]
         public string? APIUrl { get; set; }
     }
-
-    public class StarshipResponse
-    {
-        [JsonPropertyName("count")]
-        public int Count { get; set; }
-        [JsonPropertyName("next")]
-        public string Next { get; set; }
-        [JsonPropertyName("previous")]
-        public string Previous { get; set; }
-        [JsonPropertyName("results")]
-        public List<StarshipViewModel> Results { get; set; }
-    }
 }

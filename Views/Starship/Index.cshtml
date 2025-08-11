@@ -1,0 +1,16 @@
+﻿@model List<GalaxyFarFarAway.ViewModels.StarshipViewModel>
+
+<div>
+    @foreach(var starship in Model)
+    {
+        <div>
+            <h2>@starship.Name</h2>
+            <p>Model: @starship.Model</p>
+            <p>Manufacturer: @starship.Manufacturer</p>
+            <p>Cost in Credits: @starship.CostInCredits</p>
+            <p>Crew: @starship.Crew</p>
+            <p>Passengers: @starship.PassengerCapacity</p>
+        </div>
+    }
+)
+</div>
