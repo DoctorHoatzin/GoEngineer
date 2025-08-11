@@ -25,7 +25,7 @@ namespace GalaxyFarFarAway.Services
 
             if (!db.Starships.Any())
             {
-                var starships = await apiService.GetStarshipsFromApiAsync<List<Starship>>("/starships");
+                var starships = await apiService.GetStarshipsFromApiAsync<List<StarshipViewModel>>("/starships");
                 foreach (var ship in starships)
                 {
                     if (!string.IsNullOrEmpty(ship.Crew))

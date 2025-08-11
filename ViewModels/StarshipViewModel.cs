@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace GalaxyFarFarAway.ViewModels
 {
-    public class Starship
+    public class StarshipViewModel
     {
         [Key]
         public int Id { get; set; }
@@ -58,6 +58,6 @@ namespace GalaxyFarFarAway.ViewModels
         [JsonPropertyName("previous")]
         public string Previous { get; set; }
         [JsonPropertyName("results")]
-        public List<Starship> Results { get; set; }
+        public List<StarshipViewModel> Results { get; set; }
     }
 }

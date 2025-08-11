@@ -9,6 +9,6 @@ namespace Database
         {
 
         }
-        public DbSet<Starship> Starships { get; set; }
+        public DbSet<StarshipViewModel> Starships { get; set; }
     }
 }
