@@ -28,11 +28,19 @@ namespace GalaxyFarFarAway.Services
                 var starships = await apiService.GetStarshipsFromApiAsync<List<Starship>>("/starships");
                 foreach (var ship in starships)
                 {
-                    if (!string.IsNullOrEmpty(ship.Crew) && ship.Crew.Contains('-'))
+                    if (!string.IsNullOrEmpty(ship.Crew))
                     {
-                        var hyphen = ship.Crew.IndexOf('-');
-                        ship.MinimumCrew = ship.Crew.Substring(0, hyphen);
-                        ship.MaximumCrew = ship.Crew.Substring(hyphen + 1);
+                        if (ship.Crew.Contains('-'))
+                        {
+                            var hyphen = ship.Crew.IndexOf('-');
+                            ship.MinimumCrew = ship.Crew.Substring(0, hyphen);
+                            ship.MaximumCrew = ship.Crew.Substring(hyphen + 1);
+                        }
+                        else
+                        {
+                            ship.MinimumCrew = ship.Crew;
+                            ship.MaximumCrew = ship.Crew;
+                        }
                     }
                     db.Starships.Add(ship);
                 }

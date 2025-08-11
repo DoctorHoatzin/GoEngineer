@@ -22,7 +22,7 @@ namespace GoEngineer_Star_Wars_API_Demonstration.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("GalaxyFarFarAway.Starship", b =>
+            modelBuilder.Entity("GalaxyFarFarAway.ViewModels.Starship", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -31,77 +31,76 @@ namespace GoEngineer_Star_Wars_API_Demonstration.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("APIUrl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasAnnotation("Relational:JsonPropertyName", "url");
 
-                    b.Property<int?>("CargoCapacity")
-                        .HasColumnType("int")
+                    b.Property<string>("CargoCapacity")
+                        .HasColumnType("nvarchar(max)")
                         .HasAnnotation("Relational:JsonPropertyName", "cargo_capacity");
 
-                    b.Property<int?>("ConsumablesInYears")
-                        .HasColumnType("int")
+                    b.Property<string>("ConsumablesInYears")
+                        .HasColumnType("nvarchar(max)")
                         .HasAnnotation("Relational:JsonPropertyName", "consumables");
 
-                    b.Property<float?>("CostInCredits")
-                        .HasColumnType("real")
+                    b.Property<string>("CostInCredits")
+                        .HasColumnType("nvarchar(max)")
                         .HasAnnotation("Relational:JsonPropertyName", "cost_in_credits");
 
                     b.Property<DateTime>("DateCreated")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasAnnotation("Relational:JsonPropertyName", "created");
 
                     b.Property<DateTime>("DateLastUpdated")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasAnnotation("Relational:JsonPropertyName", "edited");
 
                     b.PrimitiveCollection<string>("Films")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasAnnotation("Relational:JsonPropertyName", "films");
 
-                    b.Property<float?>("HyperdriveRating")
-                        .HasColumnType("real")
+                    b.Property<string>("HyperdriveRating")
+                        .HasColumnType("nvarchar(max)")
                         .HasAnnotation("Relational:JsonPropertyName", "hyperdrive_rating");
 
-                    b.Property<float?>("Length")
-                        .HasColumnType("real");
+                    b.Property<string>("Length")
+                        .HasColumnType("nvarchar(max)")
+                        .HasAnnotation("Relational:JsonPropertyName", "length");
 
                     b.Property<string>("Manufacturer")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasAnnotation("Relational:JsonPropertyName", "manufacturer");
 
-                    b.Property<float?>("MaxAtmospheringSpeed")
-                        .HasColumnType("real")
+                    b.Property<string>("MaxAtmospheringSpeed")
+                        .HasColumnType("nvarchar(max)")
                         .HasAnnotation("Relational:JsonPropertyName", "max_atmosphering_speed");
 
-                    b.Property<int?>("MaximumCrew")
-                        .HasColumnType("int");
+                    b.Property<string>("MaximumCrew")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("MegaLightPerHour")
-                        .HasColumnType("int")
+                    b.Property<string>("MegaLightPerHour")
+                        .HasColumnType("nvarchar(max)")
                         .HasAnnotation("Relational:JsonPropertyName", "MGLT");
 
-                    b.Property<int?>("MinimumCrew")
-                        .HasColumnType("int");
+                    b.Property<string>("MinimumCrew")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Model")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasAnnotation("Relational:JsonPropertyName", "model");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasAnnotation("Relational:JsonPropertyName", "name");
 
-                    b.Property<int?>("PassengerCapacity")
-                        .HasColumnType("int")
+                    b.Property<string>("PassengerCapacity")
+                        .HasColumnType("nvarchar(max)")
                         .HasAnnotation("Relational:JsonPropertyName", "passengers");
 
                     b.PrimitiveCollection<string>("Pilots")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasAnnotation("Relational:JsonPropertyName", "pilots");
 
                     b.Property<string>("StarshipClass")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasAnnotation("Relational:JsonPropertyName", "starship_class");
 
