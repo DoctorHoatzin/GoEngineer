@@ -25,10 +25,15 @@ namespace GalaxyFarFarAway.Services
 
             if (!db.Starships.Any())
             {
-                var starships = await apiService.GetStarshipsFromApiAsync<StarshipResponse>("/starships");
-                var starshipData = starships.Results;
-                foreach (var ship in starshipData)
+                var starships = await apiService.GetStarshipsFromApiAsync<List<Starship>>("/starships");
+                foreach (var ship in starships)
                 {
+                    if (!string.IsNullOrEmpty(ship.Crew) && ship.Crew.Contains('-'))
+                    {
+                        var hyphen = ship.Crew.IndexOf('-');
+                        ship.MinimumCrew = ship.Crew.Substring(0, hyphen);
+                        ship.MaximumCrew = ship.Crew.Substring(hyphen + 1);
+                    }
                     db.Starships.Add(ship);
                 }
                 await db.SaveChangesAsync();

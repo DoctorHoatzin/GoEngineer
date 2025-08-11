@@ -15,39 +15,44 @@ namespace GalaxyFarFarAway.ViewModels
         [JsonPropertyName("manufacturer")]
         public string Manufacturer { get; set; }
         [JsonPropertyName("cost_in_credits")]
-        public float? CostInCredits { get; set; }
-        public float? Length { get; set; }
+        public string CostInCredits { get; set; }
+        public string Length { get; set; }
         [JsonPropertyName("max_atmosphering_speed")]
-        public float? MaxAtmospheringSpeed { get; set; }
+        public string MaxAtmospheringSpeed { get; set; }
         [JsonPropertyName("crew")]
         [NotMapped]
         public string Crew { get; set; }
-        public int? MinimumCrew { get; set; }
-        public int? MaximumCrew { get; set; }
+        public string MinimumCrew { get; set; }
+        public string MaximumCrew { get; set; }
         [JsonPropertyName("passengers")]
-        public int? PassengerCapacity { get; set; }
+        public string PassengerCapacity { get; set; }
         [JsonPropertyName("cargo_capacity")]
-        public int? CargoCapacity { get; set; }
+        public string CargoCapacity { get; set; }
         [JsonPropertyName("consumables")]
-        public int? ConsumablesInYears { get; set; }
+        public string ConsumablesInYears { get; set; }
         [JsonPropertyName("hyperdrive_rating")]
-        public float? HyperdriveRating { get; set; }
+        public string HyperdriveRating { get; set; }
         [JsonPropertyName("MGLT")]
-        public int? MegaLightPerHour { get; set; }
+        public string MegaLightPerHour { get; set; }
         [JsonPropertyName("starship_class")]
         public string StarshipClass { get; set; }
         public IEnumerable<string> Pilots { get; set; }
         public IEnumerable<string> Films { get; set; }
         public DateTime DateCreated { get; set; }
         public DateTime DateLastUpdated { get; set; }
+        [JsonPropertyName("url")]
         public string APIUrl { get; set; }
     }
 
     public class StarshipResponse
     {
+        [JsonPropertyName("count")]
         public int Count { get; set; }
+        [JsonPropertyName("next")]
         public string Next { get; set; }
+        [JsonPropertyName("previous")]
         public string Previous { get; set; }
+        [JsonPropertyName("results")]
         public List<Starship> Results { get; set; }
     }
 }
