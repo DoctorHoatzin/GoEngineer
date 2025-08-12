@@ -1,16 +1,69 @@
 ﻿@model List<GalaxyFarFarAway.ViewModels.StarshipViewModel>
 
-<div>
-    @foreach(var starship in Model)
-    {
-        <div>
-            <h2>@starship.Name</h2>
-            <p>Model: @starship.Model</p>
-            <p>Manufacturer: @starship.Manufacturer</p>
-            <p>Cost in Credits: @starship.CostInCredits</p>
-            <p>Crew: @starship.Crew</p>
-            <p>Passengers: @starship.PassengerCapacity</p>
-        </div>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
+
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+<style>
+    #starship-table {
+        font-size: 0.9em;
     }
-)
+    #starship-table th, #starship-table td {
+        padding: 4px 8px;
+    }
+</style>
+
+<h1>Starships</h1>
+<div style="width: 100% !important">
+    <table id="starship-table" class="display">
+        <thead>
+            <tr>
+                <th>Ship Name</th>
+                <th>Ship Model</th>
+                <th>Ship Manufacturer</th>
+                <th>Cost (In Credits)</th>
+                <th>Ship Length (In Meters)</th>
+                <th>Max Atmosphering Speed (In km/h)</th>
+                <th>Minimum Crew</th>
+                <th>Maximum Crew</th>
+                <th>Passenger Capacity</th>
+                <th>Cargo Capacity (In Kg)</th>
+                <th>Consumables</th>
+                <th>Hyperdrive Rating</th>
+                <th>Megalight Per Hour</th>
+                <th>Starship Class</th>
+                <th>Pilots</th>
+                <th>Film Appearances</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var starship in Model)
+            {
+                <tr>
+                    <td>@starship.Name</td>
+                    <td>@starship.Model</td>
+                    <td>@starship.Manufacturer</td>
+                    <td>@starship.CostInCredits</td>
+                    <td>@starship.Length</td>
+                    <td>@starship.MaxAtmospheringSpeed</td>
+                    <td>@starship.MinimumCrew</td>
+                    <td>@starship.MaximumCrew</td>
+                    <td>@starship.PassengerCapacity</td>
+                    <td>@starship.CargoCapacity</td>
+                    <td>@starship.ConsumablesInYears</td>
+                    <td>@starship.HyperdriveRating</td>
+                    <td>@starship.MegaLightPerHour</td>
+                    <td>@starship.StarshipClass</td>
+                    <td>@string.Join(", ", starship.Pilots)</td>
+                    <td>@string.Join(", ", starship.Films)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
+<script>
+    $(document).ready(function () {
+        $('#starship-table').DataTable();
+    });
+</script>
