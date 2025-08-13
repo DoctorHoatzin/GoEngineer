@@ -25,6 +25,7 @@ namespace GalaxyFarFarAway.Services
 
             if (!db.Starships.Any())
             {
+                Console.WriteLine("List of Starships is Empty");
                 var starships = await apiService.GetStarshipsFromApiAsync<List<StarshipViewModel>>("/starships");
                 foreach (var ship in starships)
                 {
@@ -46,6 +47,7 @@ namespace GalaxyFarFarAway.Services
                 }
                 await db.SaveChangesAsync();
             }
+            Console.WriteLine("Starships already exist in the database.");
         }
 
         public Task StopAsync(CancellationToken cancellationToken) => Task.CompletedTask;

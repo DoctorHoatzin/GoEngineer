@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GoEngineer_Star_Wars_API_Demonstration.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250811170617_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20250813192845_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,7 +25,7 @@ namespace GoEngineer_Star_Wars_API_Demonstration.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("GalaxyFarFarAway.ViewModels.Starship", b =>
+            modelBuilder.Entity("GalaxyFarFarAway.ViewModels.StarshipViewModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
