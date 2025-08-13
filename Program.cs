@@ -1,8 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using Database;
 using GalaxyFarFarAway.Services;
+using Microsoft.Data.SqlClient;
 
 var builder = WebApplication.CreateBuilder(args);
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -22,6 +24,17 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+try
+{
+    using var connection = new SqlConnection(builder.Configuration.GetConnectionString("DefaultConnection"));
+    connection.Open();
+    Console.WriteLine("Connection successful!");
+}
+catch (Exception ex)
+{
+    Console.WriteLine("Connection Unsuccessful!");
+}
+
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
