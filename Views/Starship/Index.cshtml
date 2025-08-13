@@ -4,17 +4,28 @@
 
 <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="~/js/StarshipForm.js"></script>
 
 <style>
-    #starship-table {
+    #starship-table, th {
         font-size: 0.9em;
     }
     #starship-table th, #starship-table td {
         padding: 4px 8px;
     }
+    .modal-dialog {
+        max-width: 1000px;
+    }
+    .modal-content {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
 </style>
 
 <h1>Starships</h1>
+<div class="mb-2">
+    <button class="btn btn-primary" id="addShip">Add Starship</button>
+</div>
 <div style="width: 100% !important">
     <table id="starship-table" class="display">
         <thead>
@@ -34,13 +45,14 @@
                 <th>Megalight Per Hour</th>
                 <th>Starship Class</th>
                 <th>Pilots</th>
-                <th>Film Appearances</th>
+                <th>Films</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var starship in Model)
             {
-                <tr>
+                <tr data-starship-id="@starship.Id">
                     <td>@starship.Name</td>
                     <td>@starship.Model</td>
                     <td>@starship.Manufacturer</td>
@@ -55,15 +67,52 @@
                     <td>@starship.HyperdriveRating</td>
                     <td>@starship.MegaLightPerHour</td>
                     <td>@starship.StarshipClass</td>
-                    <td>@string.Join(", ", starship.Pilots)</td>
-                    <td>@string.Join(", ", starship.Films)</td>
+                    <td>
+                        @if (starship.Pilots != null && starship.Pilots.Any())
+                        {
+                            @Html.Raw(string.Join(", ", starship.Pilots.Select(p => $"<a href='{p}' target='_blank'>{p}</a>")))
+                        }
+                        else
+                        {
+                            @:N/A
+                        }
+                    </td>
+                    <td>
+                        @if (starship.Films != null && starship.Films.Any())
+                        {
+                            @Html.Raw(string.Join(", ", starship.Films.Select(p => $"<a href='{p}' target='_blank'>{p}</a>")))
+                        }
+                        else
+                        {
+                            @:N/A
+                        }
+                    </td>
+                    <td>
+                        <button class="btn btn-sm btn-primary" id="btnEdit">Edit</button>
+                        <button class="btn btn-sm btn-danger" id="btnDelete">Delete</button>
+
+                    </td>
                 </tr>
             }
         </tbody>
     </table>
 </div>
+
+<div id="starshipModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" id="modalContent">
+
+        </div>
+    </div>
+</div>
+
 <script>
     $(document).ready(function () {
-        $('#starship-table').DataTable();
+        $('#starship-table').DataTable({
+            columnDefs: [{
+                targets: [14, 15], width: "6%"
+            }],
+            autoWidth: false
+        });
     });
 </script>

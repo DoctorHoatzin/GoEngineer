@@ -1,0 +1,97 @@
+﻿@model GalaxyFarFarAway.ViewModels.StarshipViewModel
+
+@using (Html.BeginForm("Upsert", "Starship", FormMethod.Post, new { id = "starshipForm" }))
+{
+    @Html.HiddenFor(m => m.Id)
+
+    <div class="container-fluid px-3">
+        <div class="row mb-3">
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.Name, new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Enter Starship Name" })
+                @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.Model, new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(m => m.Model, new { @class = "form-control", placeholder = "Enter Starship Model" })
+                @Html.ValidationMessageFor(m => m.Model, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.Manufacturer, new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(m => m.Manufacturer, new { @class = "form-control", placeholder = "Enter Manufacturer" })
+                @Html.ValidationMessageFor(m => m.Manufacturer, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.CostInCredits, new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(m => m.CostInCredits, new { @class = "form-control", placeholder = "Enter Cost (Credits)" })
+                @Html.ValidationMessageFor(m => m.CostInCredits, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.Length, new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(m => m.Length, new { @class = "form-control", placeholder = "Enter Length (m)" })
+                @Html.ValidationMessageFor(m => m.Length, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.MaxAtmospheringSpeed, new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(m => m.MaxAtmospheringSpeed, new { @class = "form-control", placeholder = "Enter Speed (km/h)" })
+                @Html.ValidationMessageFor(m => m.MaxAtmospheringSpeed, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.MinimumCrew, new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(m => m.MinimumCrew, new { @class = "form-control", placeholder = "Min Crew" })
+                @Html.ValidationMessageFor(m => m.MinimumCrew, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.MaximumCrew, new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(m => m.MaximumCrew, new { @class = "form-control", placeholder = "Max Crew" })
+                @Html.ValidationMessageFor(m => m.MaximumCrew, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.PassengerCapacity, new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(m => m.PassengerCapacity, new { @class = "form-control", placeholder = "Passenger Capacity" })
+                @Html.ValidationMessageFor(m => m.PassengerCapacity, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.CargoCapacity, new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(m => m.CargoCapacity, new { @class = "form-control", placeholder = "Cargo Capacity (kg)" })
+                @Html.ValidationMessageFor(m => m.CargoCapacity, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.ConsumablesInYears, new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(m => m.ConsumablesInYears, new { @class = "form-control", placeholder = "Consumables" })
+                @Html.ValidationMessageFor(m => m.ConsumablesInYears, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.HyperdriveRating, new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(m => m.HyperdriveRating, new { @class = "form-control", placeholder = "Hyperdrive Rating" })
+                @Html.ValidationMessageFor(m => m.HyperdriveRating, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                @Html.LabelFor(m => m.MegaLightPerHour, new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(m => m.MegaLightPerHour, new { @class = "form-control", placeholder = "Megalight/Hour" })
+                @Html.ValidationMessageFor(m => m.MegaLightPerHour, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-6">
+                @Html.LabelFor(m => m.StarshipClass, new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(m => m.StarshipClass, new { @class = "form-control", placeholder = "Starship Class" })
+                @Html.ValidationMessageFor(m => m.StarshipClass, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-end mt-4">
+            <button type="submit" class="btn btn-success px-4">Save</button>
+        </div>
+    </div>
+}
