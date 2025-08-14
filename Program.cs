@@ -1,10 +1,16 @@
 using Microsoft.EntityFrameworkCore;
 using Database;
 using GalaxyFarFarAway.Services;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
+    .AddEntityFrameworkStores<ApplicationDbContext>();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 

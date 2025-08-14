@@ -3,6 +3,7 @@ using Database;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using GalaxyFarFarAway.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GalaxyFarFarAway.Controllers
 {
@@ -12,6 +13,7 @@ namespace GalaxyFarFarAway.Controllers
         {
             _db = db;
         }
+        [Authorize]
         public ActionResult Index()
         {
             var starships = new List<StarshipViewModel>();
