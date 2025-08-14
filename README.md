@@ -85,3 +85,4 @@ Notes
 - You can use your local database to test seeding, API population, and page rendering without affecting the Azure database.
 - All migrations are included in the project, so running Update-Database should normally apply them correctly if your database is empty or matches the migration history.
 - Ensure the correct environment is set (Development or Production) when applying migrations or running the application.
+-On the off chance that there is an error declaring duplicate attributes in the services project, comment them out in ~~\GalaxyFarFarAway.Services\obj\Release\net8.0\GalaxyFarFarAway.Services.AssemblyInfo.cs
