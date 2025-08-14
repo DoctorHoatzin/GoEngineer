@@ -29,13 +29,13 @@ namespace GoEngineer_Star_Wars_API_Demonstration.Areas.Identity.Pages.Account
             _logger.LogInformation("User logged out.");
             if (returnUrl != null)
             {
-                return LocalRedirect(returnUrl);
+                return LocalRedirect("/Identity/Account/Login?ReturnUrl=%2F");
             }
             else
             {
                 // This needs to be a redirect so that the browser performs a new
                 // request and the identity for the user gets updated.
-                return RedirectToPage();
+                return RedirectToPage("/Identity/Account/Login?ReturnUrl=%2F");
             }
         }
     }
