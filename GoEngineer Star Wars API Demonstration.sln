@@ -5,7 +5,7 @@ VisualStudioVersion = 17.14.36401.2
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GalaxyFarFarAway", "GalaxyFarFarAway.csproj", "{5EFBBFD9-3FEB-4E75-A384-AA96B3E308BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GalaxyFarFarAway.Services", "..\GoEngineer\GalaxyFarFarAway.Services\GalaxyFarFarAway.Services.csproj", "{E376E6A5-D85C-4498-8579-E5507F81C48D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GalaxyFarFarAway.Services", "GalaxyFarFarAway.Services\GalaxyFarFarAway.Services.csproj", "{E376E6A5-D85C-4498-8579-E5507F81C48D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
