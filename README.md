@@ -45,7 +45,7 @@ Identity Login
 
 - The application uses ASP.NET Core Identity for user authentication.
 - Default user names and passwords for testing can be found in the UserIdentityRoleSeeder.cs file located in the GalaxyFarFarAway.Services project.
-- The Admin credentials are the only ones that can add or delete entries from the table. The base user does not have those permissions.
+- ***The Admin credentials are the only ones that can add or delete entries from the table. The base user does not have those permissions.***
 
 ------------------------------------------------------------
 
