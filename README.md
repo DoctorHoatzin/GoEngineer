@@ -36,7 +36,7 @@ Steps:
 
 Running the Project on Azure
 
-- To run the project on Azure, publish only the main project, not the Services project.
+- To run the project on Azure, go to [https://galaxyfarfarawaybuckley-bydtgtfcaueyaxhw.canadacentral-01.azurewebsites.net](https://galaxyfarfarawaybuckley-bydtgtfcaueyaxhw.canadacentral-01.azurewebsites.net)
 - You will not have direct access to the Azure database, but any changes made through the site (add/edit/delete) are reflected in real time.
 
 ------------------------------------------------------------
