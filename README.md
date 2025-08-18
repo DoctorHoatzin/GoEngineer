@@ -36,7 +36,7 @@ Steps:
 
 Running the Project on Azure
 
-- To run the project on Azure, publish only the main project, not the Services project.
+- To run the project on Azure, go to [https://galaxyfarfarawaybuckley-bydtgtfcaueyaxhw.canadacentral-01.azurewebsites.net](https://galaxyfarfarawaybuckley-bydtgtfcaueyaxhw.canadacentral-01.azurewebsites.net)
 - You will not have direct access to the Azure database, but any changes made through the site (add/edit/delete) are reflected in real time.
 
 ------------------------------------------------------------
@@ -45,7 +45,7 @@ Identity Login
 
 - The application uses ASP.NET Core Identity for user authentication.
 - Default user names and passwords for testing can be found in the UserIdentityRoleSeeder.cs file located in the GalaxyFarFarAway.Services project.
-- The Admin credentials are the only ones that can add or delete entries from the table. The base user does not have those permissions.
+- ***The Admin credentials are the only ones that can add or delete entries from the table. The base user does not have those permissions.***
 
 ------------------------------------------------------------
 
@@ -85,4 +85,4 @@ Notes
 - You can use your local database to test seeding, API population, and page rendering without affecting the Azure database.
 - All migrations are included in the project, so running Update-Database should normally apply them correctly if your database is empty or matches the migration history.
 - Ensure the correct environment is set (Development or Production) when applying migrations or running the application.
-- On the off chance that there is an error declaring duplicate attributes in the services project, comment them out in ~~\GalaxyFarFarAway.Services\obj\Release\net8.0\GalaxyFarFarAway.Services.AssemblyInfo.cs
+- On the off chance that there is an error declaring duplicate attributes in the services project, comment them out in whichever file appears with them
