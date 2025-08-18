@@ -8,6 +8,7 @@ namespace GalaxyFarFarAway.ViewModels
     {
         [Key]
         public int Id { get; set; }
+        public Guid PublicId { get; set; } = Guid.NewGuid();
         [JsonPropertyName("name")]
         public string? Name { get; set; }
         [JsonPropertyName("model")]

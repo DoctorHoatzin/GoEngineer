@@ -152,9 +152,10 @@ namespace GalaxyFarFarAway.Controllers
         }
 
         [HttpDelete]
-        public ActionResult Delete(int id)
+        [Authorize(Roles = "Admin")]
+        public ActionResult Delete(Guid id)
         {
-            var ship = _db.Starships.FirstOrDefault(s => s.Id == id);
+            var ship = _db.Starships.FirstOrDefault(s => s.PublicId == id);
             if (ship != null)
             {
                 _db.Starships.Remove(ship);

@@ -43,6 +43,7 @@ namespace GalaxyFarFarAway.Services
                             ship.MaximumCrew = ship.Crew;
                         }
                     }
+                    ship.PublicId = Guid.NewGuid();
                     db.Starships.Add(ship);
                 }
                 await db.SaveChangesAsync();
