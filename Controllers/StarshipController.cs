@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using GalaxyFarFarAway.ViewModels;
 using Microsoft.AspNetCore.Authorization;
+using System.Globalization;
 
 namespace GalaxyFarFarAway.Controllers
 {
@@ -40,7 +41,7 @@ namespace GalaxyFarFarAway.Controllers
                 DateCreated = s.DateCreated,
                 DateLastUpdated = s.DateLastUpdated,
                 APIUrl = s.APIUrl
-            }).ToList();
+            }).Where(static s => int.TryParse(s.MinimumCrew, NumberStyles.AllowThousands, CultureInfo.InvariantCulture, out int result) == true && result >= 200).ToList();
             return View("~/Views/Starship/Index.cshtml", vmList);
         }
 
